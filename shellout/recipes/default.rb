@@ -1,3 +1,5 @@
+Chef::Log.level = :debug
+
 script_file = file "/tmp/shellout" do
   content node["shellout"]["code"]
   owner node["shellout"]["user"]
