@@ -1,5 +1,12 @@
 Chef::Log.level = :debug
 
+bash "change system greeting" do
+  user "root"
+  code <<-EOH
+     echo "Hello OpsWorks World" > /etc/motd
+  EOH
+end
+
 script_file = file "/tmp/shellout" do
   content node["shellout"]["code"]
   owner node["shellout"]["user"]
